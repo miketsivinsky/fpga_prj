@@ -23,6 +23,8 @@ SRC := $(SRC_DIR)/led_blink.sv \
 
 SDC := led_blink.sdc
 
+DEV := "USB-Blaster  [USB-0]"
+
 #------------------------------------------------------------------------------
 QUARTUS  := 12.1
 
