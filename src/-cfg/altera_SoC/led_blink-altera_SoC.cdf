@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(5CSXFC6D6F31ES) Path("D:/Mike/slon/SoC-X-FPGA/FPGA/altera/slonA/bin/") File("led_blink-altera_SoC.sof") MfrSpec(OpMask(1));
+		Device PartName(5CSXFC6D6F31ES) Path("D:/Mike/slon/FPGA/altera/slonA/bin/") File("led_blink-altera_SoC.sof") MfrSpec(OpMask(1));
 	P ActionCode(Ign)
 		Device PartName(SOCVHPS) MfrSpec(OpMask(0));
 

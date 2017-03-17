@@ -21,7 +21,7 @@ SRC := $(SRC_DIR)/led_blink.sv \
        $(SRC_DIR)/prescaler/prescaler.sv \
        $(SRC_DIR)/io_bus/io_bus.sv
 
-SDC := led_blink.sdc
+SDC := led_blink-altera_DE1.sdc
 
 DEV := "USB-Blaster  [USB-0]"
 
