@@ -23,6 +23,9 @@ module prescaler_m  import prescaler_lib::*;
 );
 
 //------------------------------------------------------------------------------
+localparam integer COUNTER_WIDTH = MAX_COUNTER_WIDTH - `PRESCALER_OFFSET;
+
+//------------------------------------------------------------------------------
 typedef bit [COUNTER_WIDTH-1:0] Counter_t;
 
 Counter_t counter;
@@ -47,6 +50,7 @@ always_ff @(posedge clk) begin
 end
 
 //----
-assign out = counter[(COUNTER_WIDTH-`PRESCALER_OFFSET-1)-:`PRESCALER_WIDTH];
+//assign out = counter[(COUNTER_WIDTH-`PRESCALER_OFFSET-1)-:`PRESCALER_WIDTH];
+assign out = counter[(COUNTER_WIDTH-1)-:`PRESCALER_WIDTH];
 
 endmodule : prescaler_m

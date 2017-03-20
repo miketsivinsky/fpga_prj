@@ -17,7 +17,7 @@ package prescaler_lib;
 //    Settings
 //
 
-parameter integer COUNTER_WIDTH   = 32;
+parameter integer MAX_COUNTER_WIDTH   = 32;
 
 endpackage : prescaler_lib
 
