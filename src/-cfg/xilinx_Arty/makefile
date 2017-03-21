@@ -1,6 +1,6 @@
 #--------------------------------------------------------------------------------------------------
 #      project:       led_blink
-#      cfg:           altera_DE1
+#      cfg:           xilinx_Arty
 #
 #      description:   only for test project organisation and build scripts development
 #--------------------------------------------------------------------------------------------------
@@ -21,11 +21,12 @@ SRC := $(SRC_DIR)/led_blink.sv \
        $(SRC_DIR)/prescaler/prescaler.sv \
        $(SRC_DIR)/io_bus/io_bus.sv
 
-SDC := led_blink-altera_DE1.sdc
+SDC := led_blink-xilinx_Arty.sdc \
+       led_blink-xilinx_Arty.xdc
 
-DEV := "USB-Blaster"
+TRG_BOARD  := "Digilent/210319A28CB4A"
+TRG_DEVICE := "xc7a35t_0"
 
 #------------------------------------------------------------------------------
-QUARTUS  := 12.1
 
-include $(REF_DIR)/script/altera.mk
+include $(REF_DIR)/script/xilinx.mk
