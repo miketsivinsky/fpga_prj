@@ -23,7 +23,7 @@ SRC := $(SRC_DIR)/led_blink.sv \
 
 SDC := led_blink-altera_SoC.sdc
 
-DEV := "CV SoCKit  [USB-1]"
+DEV := "CV SoCKit"
 
 #------------------------------------------------------------------------------
 QUARTUS  := 16.1
