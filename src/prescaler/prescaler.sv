@@ -42,7 +42,7 @@ end
 
 //----
 always_ff @(posedge clk) begin
-	`ifdef QUARTUS
+	`ifdef BUILD_TOOL_QUARTUS
 		counter  <= counter + Counter_t'(1);	
 	`else
 		counter  <= counter + 1;
