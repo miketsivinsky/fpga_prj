@@ -1,8 +1,8 @@
 #--------------------------------------------------------------------------------------------------
-#      project:       led_blink
-#      cfg:           xilinx_Arty
+#	project:       led_blink
+#	cfg:           xilinx_Arty
 #
-#      description:   only for test project organisation and build scripts development
+#	description:   only for test project organisation and build scripts development
 #--------------------------------------------------------------------------------------------------
 
 #------------------------------------------------------------------------------
