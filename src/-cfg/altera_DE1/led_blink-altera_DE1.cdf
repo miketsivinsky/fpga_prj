@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP2C20F484) Path("D:/Mike/slon/FPGA/altera/slonA/bin/") File("led_blink-altera_DE1.sof") MfrSpec(OpMask(1));
+		Device PartName(EP2C20F484) Path("../../../bin/") File("led_blink-altera_DE1.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

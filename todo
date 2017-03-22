@@ -2,7 +2,8 @@
 
 ---- long task ----
 
+0. Write reference
 1. Altera-Xilinx script generalisation
-2. multiply runs script support
+2. Multiply runs script support
 3 (?) non-project mode for Xilinx
-4. make dev_pgm make must be processed sequentally (Xilinx pgm tool not worked when Altera pgm tool works)
+4. Make dev_pgm make must be processed sequentally (Xilinx pgm tool not worked when Altera pgm tool works)
