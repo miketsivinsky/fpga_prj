@@ -36,7 +36,7 @@ end
 //---- DAC clock counter
 always_ff @(posedge clk) begin
     if(counter < `DAC_CLK_FACTOR) begin
-            counter <= counter + 1;
+            counter <= counter + 1'b1;
         end
     else begin
         counter <= '0;
@@ -54,7 +54,7 @@ end
 //---- DAC data source
 always_ff @(posedge clk) begin
     if(counter == (`DAC_CLK_FACTOR/2 - 1)) begin
-        dout <= dout + 1;
+        dout <= dout + 1'b1;
     end
 
 end
@@ -67,19 +67,26 @@ end
 `ifndef SIMULATOR
     //---- PLL clock
     `ifdef CFG_NAME_ALTERA_DE1
-        pll pll_inst
+        pll_DE1 pll_inst
         (
             .inclk0 ( ref_clk ),
             .c0     ( clk     )
         );
     `elsif CFG_NAME_ALTERA_SOC
-        pll pll_inst
+        bit pll_clk;
+        pll_SoC pll_inst
         (
             .refclk   ( ref_clk ),
             .rst      ( 1'b0    ),
-            .outclk_0 ( clk     ),
+            .outclk_0 ( pll_clk ),
             .locked   (         )
         );
+        clkctrl_SoC clkctrl_SoC_inst
+        (
+            .inclk    ( pll_clk ),
+            .outclk   ( clk     )
+        );
+
     `else
         assign clk = ref_clk;
     `endif

@@ -12,12 +12,15 @@
 PRJ_NAME := tq1m
 REF_DIR  := ../../../../..
 SRC_DIR  := ../..
+IP_DIR   := $(REF_DIR)/ip
 
 #------------------------------------------------------------------------------
 INC := $(SRC_DIR)/tq1m.svh
 
-SRC := $(SRC_DIR)/tq1m.sv \
-       $(REF_DIR)/SRC/-ip/altera_SoC_pll.v
+SRC := $(SRC_DIR)/tq1m.sv
+
+IP  := $(IP_DIR)/clkctrl_SoC.qsys \
+       $(IP_DIR)/pll_SoC/pll_SoC.qip
 
 SDC := tq1m-altera_SoC.sdc
 

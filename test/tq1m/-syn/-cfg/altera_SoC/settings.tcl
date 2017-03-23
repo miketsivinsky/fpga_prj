@@ -30,13 +30,3 @@ set_global_assignment -name RESERVE_ALL_UNUSED_PINS_WEAK_PULLUP "AS INPUT TRI-ST
 
 #-------------------------------------------------------------------------------
 set_global_assignment -name VERILOG_INPUT_VERSION SYSTEMVERILOG_2005
-
-
-#-------------------------------------------------------------------------------
-set_instance_assignment -name PLL_COMPENSATION_MODE DIRECT -to "*pll*|altera_pll:altera_pll_i*|*"
-set_instance_assignment -name PLL_AUTO_RESET ON            -to "*pll*|altera_pll:altera_pll_i*|*"
-set_instance_assignment -name PLL_BANDWIDTH_PRESET AUTO    -to "*pll*|altera_pll:altera_pll_i*|*"
-
-#set_instance_assignment -name PLL_COMPENSATION_MODE DIRECT -to "*pll_0002*|altera_pll:altera_pll_i*|*"
-#set_instance_assignment -name PLL_AUTO_RESET ON -to "*pll_0002*|altera_pll:altera_pll_i*|*"
-#set_instance_assignment -name PLL_BANDWIDTH_PRESET AUTO -to "*pll_0002*|altera_pll:altera_pll_i*|*"

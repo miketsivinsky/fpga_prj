@@ -4,7 +4,7 @@
 // MODULE: altpll 
 
 // ============================================================
-// File Name: pll.v
+// File Name: pll_DE1.v
 // Megafunction Name(s):
 // 			altpll
 //
@@ -36,7 +36,7 @@
 // synopsys translate_off
 `timescale 1 ps / 1 ps
 // synopsys translate_on
-module pll (
+module pll_DE1 (
 	inclk0,
 	c0);
 
@@ -96,7 +96,7 @@ module pll (
 		altpll_component.compensate_clock = "CLK0",
 		altpll_component.inclk0_input_frequency = 20000,
 		altpll_component.intended_device_family = "Cyclone II",
-		altpll_component.lpm_hint = "CBX_MODULE_PREFIX=pll",
+		altpll_component.lpm_hint = "CBX_MODULE_PREFIX=pll_DE1",
 		altpll_component.lpm_type = "altpll",
 		altpll_component.operation_mode = "NORMAL",
 		altpll_component.port_activeclock = "PORT_UNUSED",
@@ -163,7 +163,7 @@ endmodule
 // Retrieval info: PRIVATE: CREATE_INCLK1_CHECK STRING "0"
 // Retrieval info: PRIVATE: CUR_DEDICATED_CLK STRING "c0"
 // Retrieval info: PRIVATE: CUR_FBIN_CLK STRING "c0"
-// Retrieval info: PRIVATE: DEVICE_SPEED_GRADE STRING "Any"
+// Retrieval info: PRIVATE: DEVICE_SPEED_GRADE STRING "7"
 // Retrieval info: PRIVATE: DIV_FACTOR0 NUMERIC "1"
 // Retrieval info: PRIVATE: DUTY_CYCLE0 STRING "50.00000000"
 // Retrieval info: PRIVATE: EFF_OUTPUT_FREQ_VALUE0 STRING "100.000000"
@@ -210,7 +210,7 @@ endmodule
 // Retrieval info: PRIVATE: PLL_PFDENA_CHECK STRING "0"
 // Retrieval info: PRIVATE: PLL_TARGET_HARCOPY_CHECK NUMERIC "0"
 // Retrieval info: PRIVATE: PRIMARY_CLK_COMBO STRING "inclk0"
-// Retrieval info: PRIVATE: RECONFIG_FILE STRING "pll.mif"
+// Retrieval info: PRIVATE: RECONFIG_FILE STRING "pll_DE1.mif"
 // Retrieval info: PRIVATE: SACN_INPUTS_CHECK STRING "0"
 // Retrieval info: PRIVATE: SCAN_FEATURE_ENABLED STRING "0"
 // Retrieval info: PRIVATE: SELF_RESET_LOCK_LOSS STRING "0"
@@ -287,12 +287,12 @@ endmodule
 // Retrieval info: CONNECT: @inclk 0 0 1 1 GND 0 0 0 0
 // Retrieval info: CONNECT: @inclk 0 0 1 0 inclk0 0 0 0 0
 // Retrieval info: CONNECT: c0 0 0 0 0 @clk 0 0 1 0
-// Retrieval info: GEN_FILE: TYPE_NORMAL pll.v TRUE
-// Retrieval info: GEN_FILE: TYPE_NORMAL pll.ppf TRUE
-// Retrieval info: GEN_FILE: TYPE_NORMAL pll.inc FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL pll.cmp FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL pll.bsf FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL pll_inst.v FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL pll_bb.v TRUE
+// Retrieval info: GEN_FILE: TYPE_NORMAL pll_DE1.v TRUE
+// Retrieval info: GEN_FILE: TYPE_NORMAL pll_DE1.ppf TRUE
+// Retrieval info: GEN_FILE: TYPE_NORMAL pll_DE1.inc FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL pll_DE1.cmp FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL pll_DE1.bsf FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL pll_DE1_inst.v FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL pll_DE1_bb.v FALSE
 // Retrieval info: LIB_FILE: altera_mf
 // Retrieval info: CBX_MODULE_PREFIX: ON
