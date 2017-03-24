@@ -1,6 +1,7 @@
 #*******************************************************************************
 #*******************************************************************************
 package require ::quartus::project
+load_package ::quartus::iptclgen
 
 #-----------------------------------
 set DEBUG_INFO 1
@@ -29,7 +30,12 @@ set srcFileNum [expr $argc - $srcFileListStart]
 set srcFileList [lrange $argv $srcFileListStart end]
 
 #-----------------------------------
+puts [compute_pll -long_help]
+
+
+#-----------------------------------
 project_new [file normalize ${OUT_CFG_DIR}/${PRJ_FILE_NAME}]
+compute_pll -family "Cyclone V" -speed_grade 7 -pll_type "fast_pll" -input_freq 50000000 -output_freqs 10000000  -output_phases 0 -temp_dir "."
 
 #-----------------------------------
 source ${CFG_DIR}/settings.tcl
