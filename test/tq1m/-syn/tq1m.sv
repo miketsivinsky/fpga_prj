@@ -74,18 +74,24 @@ end
         );
     `elsif CFG_NAME_ALTERA_SOC
         bit pll_clk;
-        pll_SoC pll_inst
+        altera_pll #(
+			.reference_clock_frequency ( " 50 MHz" ),
+			.output_clock_frequency0   ( "100 MHz" ),
+			.operation_mode            (  "direct" ),
+			.number_of_clocks          (        1  )
+                    )
+	pll_inst
         (
             .refclk   ( ref_clk ),
             .rst      ( 1'b0    ),
-            .outclk_0 ( pll_clk ),
-            .locked   (         )
+            .outclk   ( pll_clk )
         );
-        clkctrl_SoC clkctrl_SoC_inst
-        (
-            .inclk    ( pll_clk ),
-            .outclk   ( clk     )
-        );
+	assign clk = pll_clk;
+//        clkctrl_SoC clkctrl_SoC_inst
+//        (
+//            .inclk    ( pll_clk ),
+//            .outclk   ( clk     )
+//        );
 
     `else
         assign clk = ref_clk;

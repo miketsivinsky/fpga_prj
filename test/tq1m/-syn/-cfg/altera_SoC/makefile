@@ -19,8 +19,9 @@ INC := $(SRC_DIR)/tq1m.svh
 
 SRC := $(SRC_DIR)/tq1m.sv
 
-IP  := $(IP_DIR)/clkctrl_SoC.qsys \
-       $(IP_DIR)/pll_SoC/pll_SoC.qip
+#IP  := $(IP_DIR)/clkctrl_SoC.qsys \
+#       $(IP_DIR)/pll_SoC/pll_SoC.qip
+IP   := 
 
 SDC := tq1m-altera_SoC.sdc
 
