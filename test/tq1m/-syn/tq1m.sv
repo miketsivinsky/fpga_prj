@@ -87,6 +87,17 @@ end
             .outclk   ( clk     )
         );
 
+    `elsif CFG_NAME_XILINX_ARTY
+	`define USE_IP_CORE
+	`ifdef USE_IP_CORE
+            pll pll_inst
+            (
+                .clk_in1  ( ref_clk ),
+                .clk_out1 ( clk     )
+            );
+	`else
+            assign clk = ref_clk;
+	`endif
     `else
         assign clk = ref_clk;
     `endif

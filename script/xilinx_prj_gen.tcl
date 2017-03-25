@@ -29,10 +29,11 @@ proc gen_prj_struct { prjName } {
 #-----------------------------------
 set DEBUG_INFO 1
 
-set sfx_sv  *.sv
-set sfx_v   *.v
-set sfx_sdc *.sdc
-set sfx_xdc *.xdc
+set sfx_sv   *.sv
+set sfx_v    *.v
+set sfx_sdc  *.sdc
+set sfx_xdc  *.xdc
+set sfx_xcix *.xcix
 
 #-----------------------------------
 set SCRIPT_DIR        [lindex $argv 0]
@@ -81,6 +82,13 @@ set src_xdc  [lsearch -all -inline $srcFileList $sfx_xdc]
 foreach src $src_xdc {
 	add_files -fileset constrs_1 -norecurse $src
 } 
+
+#--- XCIX file list
+set src_xcix  [lsearch -all -inline $srcFileList $sfx_xcix]
+foreach src $src_xcix {
+	read_ip $src
+} 
+
 
 #-----------------------------------
 source ${CFG_DIR}/settings.tcl

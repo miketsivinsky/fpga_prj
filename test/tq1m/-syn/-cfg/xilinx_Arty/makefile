@@ -22,7 +22,7 @@ SRC := $(SRC_DIR)/tq1m.sv
 SDC := tq1m-xilinx_Arty.sdc \
        tq1m-xilinx_Arty.xdc
 
-IP :=
+IP :=  $(IP_DIR)/pll.xcix
 
 TRG_BOARD  := "Digilent/210319A28CB4A"
 TRG_DEVICE := "xc7a35t_0"
