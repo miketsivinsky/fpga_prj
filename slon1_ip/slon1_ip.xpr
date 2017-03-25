@@ -6,7 +6,7 @@
 <Project Version="7" Minor="17" Path="D:/Mike/themes/FPGA/work/prj-org/slon1_ip/slon1_ip.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="5113efebd8e9474abe56ec451d7ed7db"/>
+    <Option Name="Id" Val="fc10fd6fbd2e44d9857a3ab1839fdcf3"/>
     <Option Name="Part" Val="xc7a35ticsg324-1L"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -51,6 +51,32 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
+      <File Path="$PPRDIR/../ip/pll.xcix">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../ip/pll/pll.xci">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+        <CompFileExtendedInfo CompFileName="pll.xci" FileRelPathName="pll_ooc.xdc"/>
+        <CompFileExtendedInfo CompFileName="pll.xci" FileRelPathName="mmcm_pll_drp_func_us_mmcm.vh"/>
+        <CompFileExtendedInfo CompFileName="pll.xci" FileRelPathName="pll.v"/>
+        <CompFileExtendedInfo CompFileName="pll.xci" FileRelPathName="mmcm_pll_drp_func_us_pll.vh"/>
+        <CompFileExtendedInfo CompFileName="pll.xci" FileRelPathName="pll.xdc"/>
+        <CompFileExtendedInfo CompFileName="pll.xci" FileRelPathName="pll_board.xdc"/>
+        <CompFileExtendedInfo CompFileName="pll.xci" FileRelPathName="pll_clk_wiz.v"/>
+        <CompFileExtendedInfo CompFileName="pll.xci" FileRelPathName="mmcm_pll_drp_func_7s_mmcm.vh"/>
+        <CompFileExtendedInfo CompFileName="pll.xci" FileRelPathName="pll.veo"/>
+        <CompFileExtendedInfo CompFileName="pll.xci" FileRelPathName="doc/clk_wiz_v5_3_changelog.txt"/>
+        <CompFileExtendedInfo CompFileName="pll.xci" FileRelPathName="mmcm_pll_drp_func_7s_pll.vh"/>
+        <CompFileExtendedInfo CompFileName="pll.xci" FileRelPathName="pll.xml"/>
+      </File>
       <File Path="$PPRDIR/src/slon1_ip.sv">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -86,7 +112,7 @@
       <Filter Type="Srcs"/>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="slon1_ip"/>
+        <Option Name="TopModule" Val="pll"/>
         <Option Name="TopLib" Val="xil_defaultlib"/>
         <Option Name="TopAutoSet" Val="TRUE"/>
         <Option Name="TransportPathDelay" Val="0"/>

@@ -18,7 +18,7 @@
 `define BUILD_TOOL_VIVADO
 
 //---
-`define NOT_USE_PLL
+//`define NOT_USE_PLL
 `define DAC_CLK_FACTOR 50_000_000
 `define DOUT_WIDTH     4
 
