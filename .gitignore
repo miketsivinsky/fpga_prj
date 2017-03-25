@@ -6,6 +6,8 @@ bin
 /ip/**/*
 !ip/**/
 
+/slon1_ip/*
+!slon1_ip/src/
 
 # Files #
 ################################################################################
@@ -16,4 +18,9 @@ cfg_params_generated.svh
 !ip/**/*.qip
 !ip/**/*.ppf
 !ip/**/*.xcix
+
+!slon1_ip/*.xpr
+*.jou
+*.log
+
 
