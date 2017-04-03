@@ -54,7 +54,7 @@ end
 //---- DAC data source
 always_ff @(posedge clk) begin
     if(counter == (`DAC_CLK_FACTOR/2 - 1)) begin
-        dout <= dout + 1'b1;
+        //dout <= dout + 1'b1;
     end
 
 end
@@ -64,6 +64,13 @@ end
 //
 
 //------------------------------------------------------------------------------
+
+slon_b slon_b_inst
+(
+    .clk_in  ( clk ),
+    .cnt_out ( dout) 
+);
+
 `ifndef SIMULATOR
     `ifndef NOT_USE_PLL
     	//---- PLL instance
@@ -73,7 +80,7 @@ end
             .clk_out1 ( clk     )
         );
     `else
-        assign clk = ref_clk;
+            assign clk = ref_clk;
     `endif
 `else
     assign clk = ref_clk;
