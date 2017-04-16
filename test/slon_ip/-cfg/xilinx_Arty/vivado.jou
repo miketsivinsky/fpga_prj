@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2016.3_sdx (64-bit)
+# SW Build 1721784 on Tue Nov 29 22:12:44 MST 2016
+# IP Build 1720686 on Mon Nov 28 12:39:17 MST 2016
+# Start of session at: Sun Apr 16 17:00:23 2017
+# Process ID: 4380
+# Current directory: D:/Mike/themes/FPGA/work/prj-org/test/slon_ip/-cfg/xilinx_Arty
+# Command line: vivado.exe -mode batch -appjournal ..\..\-out\xilinx_Arty/slon_ip-ip.jou -log ..\..\-out\xilinx_Arty/slon_ip-ip.log -source D:\Mike\themes\FPGA\work\prj-org\script/xilinx_ip_bld.tcl -notrace -tclargs D:/Mike/themes/FPGA/work/prj-org/test/slon_ip/-cfg/xilinx_Arty/ram_16x8.tcl D:/Mike/themes/FPGA/work/prj-org/test/slon_ip/-out/xilinx_Arty/-ip/ram_16x8/ram_16x8.xcix
+# Log file: D:/Mike/themes/FPGA/work/prj-org/test/slon_ip/-cfg/xilinx_Arty/../../-out/xilinx_Arty/slon_ip-ip.log
+# Journal file: D:/Mike/themes/FPGA/work/prj-org/test/slon_ip/-cfg/xilinx_Arty\vivado.jou
+#-----------------------------------------------------------
+open_project {..\..\-out\xilinx_Arty/slon_ip-ip.jou}
