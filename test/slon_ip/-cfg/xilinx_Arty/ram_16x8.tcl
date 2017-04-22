@@ -6,9 +6,16 @@
 #--------------------------------------------------------------------------------------------------
 
 #--------------------------------------------------------------------------------------------------
-proc ipConfig { ipCoreName ipCoreOutDir } {
+source ${IP_LIB_DIR}/ram_sc_sp.tcl
 
-	#puts "slon: $ipCoreName $ipCoreOutDir"
+#--------------------------------------------------------------------------------------------------
+proc ipInfo {} {
+	return [dict create isSynth 1 isIp 1 isPacked 1]
+}
+
+#--------------------------------------------------------------------------------------------------
+proc ipUserCfg { ipCoreName ipCoreOutDir } {
+	#puts "\[ipUserCfg\] $ipCoreName $ipCoreOutDir"
 	set_property CONFIG.Write_Depth_A  16      [get_ips $ipCoreName]
 	set_property CONFIG.Write_Width_A   8      [get_ips $ipCoreName]
 	set_property CONFIG.Read_Width_A    8      [get_ips $ipCoreName]
@@ -18,5 +25,4 @@ proc ipConfig { ipCoreName ipCoreOutDir } {
 	report_property [get_ips $ipCoreName]
 }
 
-#--------------------------------------------------------------------------------------------------
-source ${IP_LIB_DIR}/ram_sc_sp.tcl
+
