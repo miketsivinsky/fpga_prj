@@ -12,11 +12,10 @@ proc ipConfig { ipCoreName ipCoreOutDir } {
 	set_property CONFIG.Write_Depth_A  16      [get_ips $ipCoreName]
 	set_property CONFIG.Write_Width_A   8      [get_ips $ipCoreName]
 	set_property CONFIG.Read_Width_A    8      [get_ips $ipCoreName]
-
+	#set_property CONFIG.Load_Init_File true    [get_ips $ipCoreName]
+	#set_property CONFIG.Coe_File ram_16x8.coe  [get_ips $ipCoreName]
+	#set_property CONFIG.Coe_File {D:/Mike/themes/FPGA/work/ip_lib/ram_16x8/ram_16x8.coe} [get_ips $ipCoreName]
 	report_property [get_ips $ipCoreName]
-
-	#set_property CONFIG.Load_Init_File true   [get_ips ram_16x8]
-	#set_property CONFIG.Coe_File ram_16x8.coe [get_ips ram_16x8]
 }
 
 #--------------------------------------------------------------------------------------------------

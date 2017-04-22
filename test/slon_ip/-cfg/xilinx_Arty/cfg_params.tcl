@@ -7,7 +7,7 @@
 
 #-----------------------------------
 set USE_PLL 0
-set USE_RAM 0
+set USE_RAM 1
 
 set CLK_FACTOR   200_000_000
 set DOUT_WIDTH             8
