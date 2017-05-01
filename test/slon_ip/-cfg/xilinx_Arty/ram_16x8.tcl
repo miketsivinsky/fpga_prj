@@ -14,14 +14,17 @@ proc ipInfo {} {
 }
 
 #--------------------------------------------------------------------------------------------------
-proc ipUserCfg { ipCoreName ipCoreOutDir } {
+proc ipUserCfg { ipCoreName ipCoreOutDir cfgDir } {
 	#puts "\[ipUserCfg\] $ipCoreName $ipCoreOutDir"
-	set_property CONFIG.Write_Depth_A  16      [get_ips $ipCoreName]
-	set_property CONFIG.Write_Width_A   8      [get_ips $ipCoreName]
-	set_property CONFIG.Read_Width_A    8      [get_ips $ipCoreName]
-	#set_property CONFIG.Load_Init_File true    [get_ips $ipCoreName]
-	#set_property CONFIG.Coe_File ram_16x8.coe  [get_ips $ipCoreName]
-	#set_property CONFIG.Coe_File {D:/Mike/themes/FPGA/work/ip_lib/ram_16x8/ram_16x8.coe} [get_ips $ipCoreName]
+	
+	set ipParams {
+			CONFIG.Write_Depth_A  16	
+			CONFIG.Write_Width_A   8
+			CONFIG.Read_Width_A    8
+                        CONFIG.Load_Init_File  {true}
+			CONFIG.Coe_File        ${cfgDir}/ram_16x8.coe
+		     }
+	set_property -dict [subst $ipParams] [get_ips $ipCoreName]
 	report_property [get_ips $ipCoreName]
 }
 
