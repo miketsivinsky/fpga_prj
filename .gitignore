@@ -16,4 +16,5 @@ cfg_params_generated.svh
 !ip/**/*.qip
 !ip/**/*.ppf
 !ip/**/*.tcl
+!ip/fifo_512x8/*.*
 

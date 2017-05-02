@@ -6,8 +6,8 @@
 #--------------------------------------------------------------------------------------------------
 
 #-----------------------------------
-set USE_PLL 0
-set USE_RAM 1
+set USE_PLL           0
+set USE_MEM_IP_CORES  1
 
 set CLK_FACTOR   200_000_000
 set DOUT_WIDTH             8
@@ -23,9 +23,10 @@ if {$USE_PLL == 1} {
 	puts $prjDefFile [format "`define USE_PLL"];
 }
 
-if {$USE_RAM == 1} {
-	puts $prjDefFile [format "`define USE_RAM"];
+if {$USE_MEM_IP_CORES == 1} {
+	puts $prjDefFile [format "`define USE_MEM_IP_CORES"];
 }
+
 
 
 

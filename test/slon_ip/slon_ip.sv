@@ -18,15 +18,34 @@ module slon_ip
 );
 
 //-----------------------------------------------------------------------------
+typedef bit [`DOUT_WIDTH-1:0]         Data_t;
 typedef bit [$clog2(`CLK_FACTOR)-1:0] Counter_t;
 typedef bit [`ADDR_WIDTH-1:0]         Addr_t;
+
+typedef struct
+{
+	bit    rst;
+	Data_t data_in;
+	Data_t data_out;
+	bit    load;
+	bit    get;
+	bit    full;
+	bit    empty;
+}
+BufCtrl_t;
 
 //-----------------------------------------------------------------------------
 Counter_t counter;
 Addr_t    addr;
 bit       clk;
 bit       clk_ena;
-bit       [`DOUT_WIDTH-1:0] ram_in;
+
+`ifdef USE_MEM_IP_CORES
+	bit       [`DOUT_WIDTH-1:0] ram_in;
+	bit       [`DOUT_WIDTH-1:0] ram_out;
+	BufCtrl_t                   buf1_ctrl;
+`endif
+
 //------------------------------------------------------------------------------
 //     Logic
 //
@@ -67,7 +86,7 @@ always_ff @(posedge clk) begin
 end
 
 //---- out data source
-`ifndef USE_RAM
+`ifndef USE_MEM_IP_CORES
     always_ff @(posedge clk) begin
        if(counter == (`CLK_FACTOR/2 - 1)) begin
            dout <= dout + 1'b1;
@@ -75,19 +94,39 @@ end
     end
 `endif
 
+`ifdef USE_MEM_IP_CORES
+    assign buf1_ctrl.rst     = 1'b0;
+    assign buf1_ctrl.data_in = ram_out;
+    assign buf1_ctrl.load    = clk_ena &&  !buf1_ctrl.full;
+    assign buf1_ctrl.get     = !buf1_ctrl.rst && clk_ena && !buf1_ctrl.empty;
+    assign dout              = buf1_ctrl.data_out;
+`endif
+
 //------------------------------------------------------------------------------
 //    Instances
 //
 
 //------------------------------------------------------------------------------
-`ifdef USE_RAM
+`ifdef USE_MEM_IP_CORES
     ram_16x8 ram_16x8_inst (
     .clka  ( clk     ),      // input wire clka
     .ena   ( clk_ena ),      // input wire ena
     .wea   ( 1'b0    ),      // input wire [0 : 0] wea
     .addra ( addr    ),      // input wire [3 : 0] addra
     .dina  ( ram_in  ),      // input wire [7 : 0] dina
-    .douta ( dout    )       // output wire [7 : 0] douta
+    .douta ( ram_out )       // output wire [7 : 0] douta
+    );
+
+    fifo_512x8 fifo_512x8_inst (
+    .clk        ( clk                ),      // input wire clka
+    .srst       ( buf1_ctrl.rst      ),      // input wire srst
+    .din        ( buf1_ctrl.data_in  ),      // input wire [7 : 0] din
+    .wr_en      ( buf1_ctrl.load     ),      // input wire wr_en
+    .rd_en      ( buf1_ctrl.get      ),      // input wire rd_en
+    .dout       ( buf1_ctrl.data_out ),      // output wire [7 : 0] dout
+    .full       ( buf1_ctrl.full     ),      // output wire full
+    .empty      ( buf1_ctrl.empty    ),      // output wire empty
+    .data_count (                    )       // output wire [9 : 0] data_count
     );
 `endif
 
