@@ -23,7 +23,7 @@ SDC := slon_ip-xilinx_Arty.sdc \
        slon_ip-xilinx_Arty.xdc
 
 #CFG_IP := ram_16x8 fifo_16x8 $(SRC_DIR)/fifo_16x4
-CFG_IP := ram_16x8 fifo_512x8
+CFG_IP := ram_16x8 fifo_512x8 fifo_256x8
 
 TRG_BOARD  := "Digilent/210319A28CB4A"
 TRG_DEVICE := "xc7a35t_0"

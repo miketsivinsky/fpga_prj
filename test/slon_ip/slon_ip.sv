@@ -37,6 +37,7 @@ BufCtrl_t;
 //-----------------------------------------------------------------------------
 Counter_t counter;
 Addr_t    addr;
+bit       rst;
 bit       clk;
 bit       clk_ena;
 
@@ -44,6 +45,7 @@ bit       clk_ena;
 	bit       [`DOUT_WIDTH-1:0] ram_in;
 	bit       [`DOUT_WIDTH-1:0] ram_out;
 	BufCtrl_t                   buf1_ctrl;
+	BufCtrl_t                   buf2_ctrl;
 `endif
 
 //------------------------------------------------------------------------------
@@ -52,6 +54,7 @@ bit       clk_ena;
 
 //----
 initial begin
+	rst      = 1'b0;
 	counter  = '0;
 	addr     = '0;
 	clk_ena  = 1'b0;
@@ -95,11 +98,17 @@ end
 `endif
 
 `ifdef USE_MEM_IP_CORES
-    assign buf1_ctrl.rst     = 1'b0;
+    assign buf1_ctrl.rst     = rst;
     assign buf1_ctrl.data_in = ram_out;
-    assign buf1_ctrl.load    = clk_ena &&  !buf1_ctrl.full;
-    assign buf1_ctrl.get     = !buf1_ctrl.rst && clk_ena && !buf1_ctrl.empty;
-    assign dout              = buf1_ctrl.data_out;
+    assign buf1_ctrl.load    = clk_ena && !buf1_ctrl.full;
+    assign buf1_ctrl.get     = !buf1_ctrl.rst && clk_ena && !buf1_ctrl.empty && !buf2_ctrl.full;
+
+    assign buf2_ctrl.rst     = rst;
+    assign buf2_ctrl.data_in = buf1_ctrl.data_out;
+    assign buf2_ctrl.load    = buf1_ctrl.get;
+    assign buf2_ctrl.get     = !buf2_ctrl.rst && clk_ena && !buf2_ctrl.empty;
+    
+    assign dout              = buf2_ctrl.data_out;
 `endif
 
 //------------------------------------------------------------------------------
@@ -128,6 +137,19 @@ end
     .empty      ( buf1_ctrl.empty    ),      // output wire empty
     .data_count (                    )       // output wire [9 : 0] data_count
     );
+
+    fifo_256x8 fifo_256x8_inst (
+    .clk        ( clk                ),      // input wire clka
+    .srst       ( buf2_ctrl.rst      ),      // input wire srst
+    .din        ( buf2_ctrl.data_in  ),      // input wire [7 : 0] din
+    .wr_en      ( buf2_ctrl.load     ),      // input wire wr_en
+    .rd_en      ( buf2_ctrl.get      ),      // input wire rd_en
+    .dout       ( buf2_ctrl.data_out ),      // output wire [7 : 0] dout
+    .full       ( buf2_ctrl.full     ),      // output wire full
+    .empty      ( buf2_ctrl.empty    ),      // output wire empty
+    .data_count (                    )       // output wire [8 : 0] data_count
+    );
+
 `endif
 
 `ifndef SIMULATOR

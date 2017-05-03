@@ -1,0 +1,41 @@
+#-----------------------------------------------------------
+# Vivado v2016.3_sdx (64-bit)
+# SW Build 1721784 on Tue Nov 29 22:12:44 MST 2016
+# IP Build 1720686 on Mon Nov 28 12:39:17 MST 2016
+# Start of session at: Wed May 03 10:05:29 2017
+# Process ID: 4292
+# Current directory: d:/Mike/themes/FPGA/work/ip_lib/fifo_256x8
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3108
+# Log file: d:/Mike/themes/FPGA/work/ip_lib/fifo_256x8/vivado.log
+# Journal file: d:/Mike/themes/FPGA/work/ip_lib/fifo_256x8\vivado.jou
+#-----------------------------------------------------------
+Sourcing tcl script 'D:/CAD/Xilinx/SDx/2016.3/Vivado/scripts/init.tcl'
+0 Beta devices matching pattern found, 0 enabled.
+Loaded SDSoC Platform Tcl Library
+Sourcing tcl script 'C:/Users/user/AppData/Roaming/Xilinx/Vivado/init.tcl'
+start_gui
+create_project managed_ip_project D:/Mike/themes/FPGA/work/ip_lib/fifo_256x8/managed_ip_project -part xc7a35ticsg324-1L -ip
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/CAD/Xilinx/SDx/2016.3/Vivado/data/ip'.
+create_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 831.031 ; gain = 82.645
+set_property coreContainer.enable 1 [current_project]
+set_property target_simulator XSim [current_project]
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+set_property coreContainer.enable 0 [current_project]
+create_ip -name fifo_generator -vendor xilinx.com -library ip -version 13.1 -module_name fifo_256x8 -dir D:/Mike/themes/FPGA/work/ip_lib/fifo_256x8
+set_property -dict [list CONFIG.Performance_Options {First_Word_Fall_Through} CONFIG.Input_Data_Width {8} CONFIG.Input_Depth {256} CONFIG.Use_Embedded_Registers {true} CONFIG.Data_Count {true} CONFIG.Output_Data_Width {8} CONFIG.Output_Depth {256} CONFIG.Use_Dout_Reset {true} CONFIG.Use_Extra_Logic {true} CONFIG.Data_Count_Width {9} CONFIG.Write_Data_Count_Width {9} CONFIG.Read_Data_Count_Width {9} CONFIG.Full_Threshold_Assert_Value {255} CONFIG.Full_Threshold_Negate_Value {254} CONFIG.Empty_Threshold_Assert_Value {4} CONFIG.Empty_Threshold_Negate_Value {5}] [get_ips fifo_256x8]
+generate_target {instantiation_template} [get_files d:/Mike/themes/FPGA/work/ip_lib/fifo_256x8/fifo_256x8/fifo_256x8.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'fifo_256x8'...
+generate_target all [get_files  d:/Mike/themes/FPGA/work/ip_lib/fifo_256x8/fifo_256x8/fifo_256x8.xci]
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'fifo_256x8'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'fifo_256x8'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'fifo_256x8'...
+export_ip_user_files -of_objects [get_files d:/Mike/themes/FPGA/work/ip_lib/fifo_256x8/fifo_256x8/fifo_256x8.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] d:/Mike/themes/FPGA/work/ip_lib/fifo_256x8/fifo_256x8/fifo_256x8.xci]
+launch_runs -jobs 6 fifo_256x8_synth_1
+[Wed May 03 10:17:24 2017] Launched fifo_256x8_synth_1...
+Run output will be captured here: D:/Mike/themes/FPGA/work/ip_lib/fifo_256x8/managed_ip_project/managed_ip_project.runs/fifo_256x8_synth_1/runme.log
+export_simulation -of_objects [get_files d:/Mike/themes/FPGA/work/ip_lib/fifo_256x8/fifo_256x8/fifo_256x8.xci] -directory D:/Mike/themes/FPGA/work/ip_lib/fifo_256x8/ip_user_files/sim_scripts -ip_user_files_dir D:/Mike/themes/FPGA/work/ip_lib/fifo_256x8/ip_user_files -ipstatic_source_dir D:/Mike/themes/FPGA/work/ip_lib/fifo_256x8/ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/Mike/themes/FPGA/work/ip_lib/fifo_256x8/managed_ip_project/managed_ip_project.cache/compile_simlib/modelsim} {questa=D:/Mike/themes/FPGA/work/ip_lib/fifo_256x8/managed_ip_project/managed_ip_project.cache/compile_simlib/questa} {riviera=D:/Mike/themes/FPGA/work/ip_lib/fifo_256x8/managed_ip_project/managed_ip_project.cache/compile_simlib/riviera} {activehdl=D:/Mike/themes/FPGA/work/ip_lib/fifo_256x8/managed_ip_project/managed_ip_project.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed May 03 10:20:24 2017...

@@ -3,18 +3,18 @@
 bin
 /src/**/-out
 /test/**/-out
-/ip/**/*
-!ip/**/
+#/ip/**/*
+#!ip/**/
 
 
 # Files #
 ################################################################################
 cfg_params_generated.svh
 
-!ip/**/*.qsys
-!ip/**/*.v
-!ip/**/*.qip
-!ip/**/*.ppf
-!ip/**/*.tcl
-!ip/fifo_512x8/*.*
+#!ip/**/*.qsys
+#!ip/**/*.v
+#!ip/**/*.qip
+#!ip/**/*.ppf
+#!ip/**/*.tcl
+#!ip/fifo_512x8/*.*
 

@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2016.3_sdx (64-bit)
+# SW Build 1721784 on Tue Nov 29 22:12:44 MST 2016
+# IP Build 1720686 on Mon Nov 28 12:39:17 MST 2016
+# Start of session at: Wed May 03 10:17:24 2017
+# Process ID: 6920
+# Current directory: D:/Mike/themes/FPGA/work/ip_lib/fifo_256x8/managed_ip_project/managed_ip_project.runs/fifo_256x8_synth_1
+# Command line: vivado.exe -log fifo_256x8.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source fifo_256x8.tcl
+# Log file: D:/Mike/themes/FPGA/work/ip_lib/fifo_256x8/managed_ip_project/managed_ip_project.runs/fifo_256x8_synth_1/fifo_256x8.vds
+# Journal file: D:/Mike/themes/FPGA/work/ip_lib/fifo_256x8/managed_ip_project/managed_ip_project.runs/fifo_256x8_synth_1\vivado.jou
+#-----------------------------------------------------------
+source fifo_256x8.tcl -notrace
