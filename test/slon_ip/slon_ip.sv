@@ -46,6 +46,7 @@ bit       clk_ena;
 	bit       [`DOUT_WIDTH-1:0] ram_out;
 	BufCtrl_t                   buf1_ctrl;
 	BufCtrl_t                   buf2_ctrl;
+	BufCtrl_t                   buf3_ctrl;
 `endif
 
 //------------------------------------------------------------------------------
@@ -106,9 +107,14 @@ end
     assign buf2_ctrl.rst     = rst;
     assign buf2_ctrl.data_in = buf1_ctrl.data_out;
     assign buf2_ctrl.load    = buf1_ctrl.get;
-    assign buf2_ctrl.get     = !buf2_ctrl.rst && clk_ena && !buf2_ctrl.empty;
+    assign buf2_ctrl.get     = !buf2_ctrl.rst && clk_ena && !buf2_ctrl.empty && !buf3_ctrl.full;
+
+    assign buf3_ctrl.rst     = rst;
+    assign buf3_ctrl.data_in = buf2_ctrl.data_out;
+    assign buf3_ctrl.load    = buf2_ctrl.get;
+    assign buf3_ctrl.get     = !buf3_ctrl.rst && clk_ena && !buf3_ctrl.empty;
     
-    assign dout              = buf2_ctrl.data_out;
+    assign dout              = buf3_ctrl.data_out;
 `endif
 
 //------------------------------------------------------------------------------
@@ -148,6 +154,18 @@ end
     .full       ( buf2_ctrl.full     ),      // output wire full
     .empty      ( buf2_ctrl.empty    ),      // output wire empty
     .data_count (                    )       // output wire [8 : 0] data_count
+    );
+
+    fifo_1024x8 fifo_1024x8_inst (
+    .clk        ( clk                ),      // input wire clka
+    .srst       ( buf3_ctrl.rst      ),      // input wire srst
+    .din        ( buf3_ctrl.data_in  ),      // input wire [7 : 0] din
+    .wr_en      ( buf3_ctrl.load     ),      // input wire wr_en
+    .rd_en      ( buf3_ctrl.get      ),      // input wire rd_en
+    .dout       ( buf3_ctrl.data_out ),      // output wire [7 : 0] dout
+    .full       ( buf3_ctrl.full     ),      // output wire full
+    .empty      ( buf3_ctrl.empty    ),      // output wire empty
+    .data_count (                    )       // output wire [10 : 0] data_count
     );
 
 `endif
