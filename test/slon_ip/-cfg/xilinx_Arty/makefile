@@ -17,7 +17,8 @@ SRC_DIR  := ../..
 #------------------------------------------------------------------------------
 INC := $(SRC_DIR)/slon_ip.svh
 
-SRC := $(SRC_DIR)/slon_ip.sv
+SRC := $(SRC_DIR)/slon_ip.sv 
+LIB := pf.sv
 
 SDC := slon_ip-xilinx_Arty.sdc \
        slon_ip-xilinx_Arty.xdc
