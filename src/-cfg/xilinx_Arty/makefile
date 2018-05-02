@@ -9,6 +9,7 @@
 # REF_DIR    - can be ../../../.. or ../../.. (for top level src)
 #------------------------------------------------------------------------------
 
+DEVICE   := xc7a35ticsg324-1L
 PRJ_NAME := led_blink
 REF_DIR  := ../../..
 SRC_DIR  := ../..
