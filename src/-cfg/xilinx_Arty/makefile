@@ -20,7 +20,7 @@ INC := $(SRC_DIR)/led_blink.svh \
 
 SRC := $(SRC_DIR)/led_blink.sv \
        $(SRC_DIR)/prescaler/prescaler.sv \
-       $(SRC_DIR)/io_bus/io_bus.sv
+       $(SRC_DIR)/io_buf/io_buf.sv
 
 SDC := led_blink-xilinx_Arty.sdc \
        led_blink-xilinx_Arty.xdc
