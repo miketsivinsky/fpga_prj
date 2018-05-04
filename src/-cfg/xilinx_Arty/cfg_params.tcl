@@ -1,6 +1,6 @@
 #--------------------------------------------------------------------------------------------------
 #	project:       led_blink
-#	cfg:           altera_SoC
+#	cfg:           xilinx_Arty
 #
 #	description:   only for test project organisation and build scripts development
 #--------------------------------------------------------------------------------------------------
