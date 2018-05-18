@@ -5,12 +5,16 @@ bin
 /test/**/-out
 #/ip/**/*
 #!ip/**/
-
+.Xil
 
 # Files #
 ################################################################################
 cfg_params_generated.svh
 webtalk.*
+*.log
+*.jou
+*.str
+*.mif
 
 #!ip/**/*.qsys
 #!ip/**/*.v
