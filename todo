@@ -7,3 +7,7 @@
 2. Multiply runs script support
 3 (?) non-project mode for Xilinx
 4. Make dev_pgm make must be processed sequentally (Xilinx pgm tool not worked when Altera pgm tool works)
+
+5. BRAM init
+https://forums.xilinx.com/t5/Welcome-Join/Block-RAM-initialization-after-implementation/td-p/701478
+https://www.xilinx.com/support/answers/63041.html

@@ -1,8 +1,8 @@
 #--------------------------------------------------------------------------------------------------
-#      project:       led_blink
-#      cfg:           altera_SoC
+#	project:       led_blink
+#	cfg:           altera_SoC
 #
-#      description:   only for test project organisation and build scripts development
+#	description:   only for test project organisation and build scripts development
 #--------------------------------------------------------------------------------------------------
 
 #--------------------------------------------------------------------------------------------------
